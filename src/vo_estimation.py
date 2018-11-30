@@ -144,6 +144,7 @@ class RCNN:
 		'''Additional LSTM network after CNN layer'''
 		
  		lstm_model = Sequential()
+		lstm_model.add(TimeDistributed(cnn_model, ...))
 		lstm_model.add(LSTM(32, input_shape=(5,6), activation='tanh', recurrent_activation='hard_sigmoid',
 							implementation=1, return_sequences=False, return_state=False, stateful=True, unroll=False))
 		lstm_model.add(LSTM(8))
